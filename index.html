@@ -3,44 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CALCULATOR</title>
+    <title>Music Player</title>
     <link rel="stylesheet" href="stylesheet.css">
-    
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </head>
 <body>
-    <div class="calculator">
-        <input type="text" placeholder="0" id="inputBox" />
-        <div>
-            <button class="operator">AC</button>
-            <button class="operator">DEL</button>
-            <button class="operator">%</button>
-            <button class="operator">/</button>
+    <div class="music">
+        <div class="title">
+            Music name
         </div>
-        <div>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button class="operator">*</button>
+        <div class="player">
+            <audio class="audio" src=""></audio>
+            <div class="btns">
+                <div class="prev icon">
+                    <ion-icon name="skip-backward"></ion-icon>
+                </div>
+                <div class="playpause icon">
+                    <ion-icon name="musical-notes"></ion-icon>
+                </div>
+                <div class="next icon">
+                    <ion-icon name="skip-forward"></ion-icon>
+                </div>
+            </div>
         </div>
-        <div>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button class="operator">-</button>
-        </div>
-        <div>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button class="operator">+</button>
-        </div>
-        <div>
-            <button>00</button>
-            <button>0</button>
-            <button>.</button>
-            <button class="equalBtn">=</button>
-        </div>
-
     </div>
     <script src="script.js"></script>
-</body>
+</body>  
+</html>

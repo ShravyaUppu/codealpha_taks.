@@ -1,56 +1,89 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: sans-serif;
+    box-sizing: border-box;
 }
 body{
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background:black;
+    
+}
+.music{
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 400px;
+    height: 300px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, .5),
+                -10px -10px  20px rgba(255, 255, 255, .1),
+                inset 10px 10px 20px  rgba(0, 0, 0, .5),
+                inset -10px -10px 20px rgba(255, 255, 255, .1) ;
+    border-radius: 50px;
+    padding: 30px;
+}
+.title{
+    font-size: 2em;
+    color:crimson;
+    font-weight: 700;
+    display: inline-flex;
+    padding: 20px;
+    text-align: center;
+    margin-bottom:   20px; 
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, .5),
+                inset -5px -5px 10px  rgba(255, 255, 255, .1);
+    border-radius: 10px;
+}
+.player{
+    position: relative;
+    width: 300px;
+    height: 100px;
+    display: grid;
+    place-items: center;
+}
+.btns{
+    position: relative;
     width: 100%;
-    height: 100vh;
-    display: flex;
+    height: 100px;
+    display:flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(45deg,#0a0a0a, #3a4452);
 }
-.calculator{
-    border: 1px solid #717377;
-    padding: 20px;
-    border-radius: 16px;
-    background: transparent;
-    box-shadow: 0px 3px 15px rgba(113,115,119,0.5);
-
-}
-input{
-    width: 320px;
-    border: none;
-    padding: 24px;
-    margin: 10px;
-    background: transparent;
-    box-shadow: 0px 3px 15px rgbs(84,84,84, 0.1);
-    font-size: 40px;
-    text-align: right;
-    cursor: pointer;
-    color: #ffffff;
-}
-input::placeholder{
-    color: #fff;
-}
-button{
-    border: none;
+.icon{
+    position: absolute;
+    font-size: 2em;
+    color: #777;
     width: 60px;
     height: 60px;
-    margin: 10px;
-    border-radius: 50%;
-    background: transparent;
-    color: white;
-    font-size: 20px;
-    box-shadow: -8px -8px 15px rgba(255,255,255,0.1);
-    cursor: pointer;
-    color: #ffffff;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .5),
+                 -5px -5px 10px  rgba(255, 255, 255, .1) ;
+    border-radius: 50px;
+    display: grid;
+    place-items: center;
+    
 }
-.equalBtn{
-    background-color: #fb7c14;
+.prev{
+    left: 0;
 }
-.operator{
-    color:greenyellow;
+.next{
+    right: 0;
 }
+.playpause{
+    width: 80px;
+    height: 80px;
+    font-size: 2.5em;
+
+}
+.icon:active{
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .5),
+                -5px -5px 10px  rgba(255, 255, 255, .1) ;
+    color: crimson;
+}
+icon.active{
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .5),
+                -5px -5px 10px  rgba(255, 255, 255, .1) ;
+    color: crimson;
+}
+
