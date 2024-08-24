@@ -1,32 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Player</title>
-    <link rel="stylesheet" href="stylesheet.css">
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-</head>
-<body>
-    <div class="music">
-        <div class="title">
-            Music name
+<html>
+    <head>
+        <title>Image Gallery</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="gallery-container">
+            <div class="gallery-item" data-index="1"><img src="f1.jpeg" alt=""></div>
+            <div class="gallery-item" data-index="2"><img src="f2.jpeg" alt=""></div>
+            <div class="gallery-item" data-index="3"><img src="flor.jpeg" alt=""></div>
+            <div class="gallery-item" data-index="4"><img src="white.jpeg" alt=""></div>
+            <div class="gallery-item" data-index="5"><img src="f3.jpeg" alt=""></div>
+            <div class="gallery-item" data-index="6"><img src="f4.jpeg" alt=""></div>
+            <div class="gallery-item" data-index="7"><img src="f5.jpeg" alt=""></div>
+            <div class="gallery-item" data-index="8"><img src="f6.jpeg" alt=""></div>
+            <div class="gallery-item" data-index="9"><img src="f7..jpeg" alt=""></div>
+            <div class="gallery-item" data-index="10"><img src="f8.jpeg" alt=""></div>
         </div>
-        <div class="player">
-            <audio class="audio" src=""></audio>
-            <div class="btns">
-                <div class="prev icon">
-                    <ion-icon name="skip-backward"></ion-icon>
-                </div>
-                <div class="playpause icon">
-                    <ion-icon name="musical-notes"></ion-icon>
-                </div>
-                <div class="next icon">
-                    <ion-icon name="skip-forward"></ion-icon>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
-</body>  
+
+        <!-- JavaScript -->
+        <script>
+            const galleryItem = document.getElementsByClassName("gallery-item");
+            // Create element for lightbox
+            const lightBoxContainer = document.createElement("div");
+            const lightBoxContent = document.createElement("div");
+            const lightBoxImg = document.createElement("div");
+            const lightBoxImage = document.createElement("img");
+            const lightBoxPrev = document.createElement("div");
+            const lightBoxNext = document.createElement("div");
+
+            // Create classlist
+            lightBoxContainer.classList.add("lightbox");
+            lightBoxContent.classList.add("lightbox-content");
+            lightBoxPrev.classList.add("fa", "fa-angle-left", "lightbox-prev");
+            lightBoxNext.classList.add("fa", "fa-angle-right", "lightbox-next");
+
+            lightBoxContainer.appendChild(lightBoxContent);
+            lightBoxContent.appendChild(lightBoxImg);
+            lightBoxImg.appendChild(lightBoxImage);
+            lightBoxContent.appendChild(lightBoxPrev);
+            lightBoxContent.appendChild(lightBoxNext);
+            document.body.appendChild(lightBoxContainer);
+
+            let index = 1;
+
+            // Create function
+            function showLightBox(n) {
+                if (n > galleryItem.length) {
+                    index = 1;
+                } else if (n < 1) {
+                    index = galleryItem.length;
+                }
+                let imageLocation = galleryItem[index - 1].children[0].getAttribute("src");
+                lightBoxImage.setAttribute("src", imageLocation);
+            }
+
+            function currentImage() {
+                lightBoxContainer.style.display = "block";
+                let imageIndex = parseInt(this.getAttribute("data-index"));
+                showLightBox(index = imageIndex);
+            }
+
+            for (let i = 0; i < galleryItem.length; i++) {
+                galleryItem[i].addEventListener("click", currentImage);
+            }
+
+            function sliderImage(n) {
+                showLightBox(index += n);
+            }
+
+            function prevImage() {
+                sliderImage(-1);
+            }
+
+            function nextImage() {
+                sliderImage(1);
+            }
+
+            lightBoxPrev.addEventListener("click", prevImage);
+            lightBoxNext.addEventListener("click", nextImage);
+
+            // Close lightbox
+            function closeLightBox(event) {
+                if (this === event.target) {
+                    lightBoxContainer.style.display = "none";
+                }
+            }
+
+            lightBoxContainer.addEventListener("click", closeLightBox);
+        </script>
+        
+    </body>
 </html>
